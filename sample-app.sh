@@ -14,7 +14,7 @@ echo "RUN pip install flask"                                      >> tempdir/Doc
 echo "COPY sample_app.py /home/myapp/sample_app.py"               >> tempdir/Dockerfile
 echo "COPY templates/index.html /home/myapp/templates/index.html" >> tempdir/Dockerfile
 echo "COPY static/style.css /home/myapp/static/style.css"         >> tempdir/Dockerfile
-echo "EXPOSE 8080"                                                >> tempdir/Dockerfile
+echo "EXPOSE 5050"                                                >> tempdir/Dockerfile
 echo "CMD python3 /home/myapp/sample_app.py"                      >> tempdir/Dockerfile
 
 # Збірка контейнера Docker
@@ -22,5 +22,5 @@ cd tempdir
 docker build -t sampleapp .
 
 # Запуск контейнера та перевірка
-docker run -t -d -p 8080:8080 --name samplerunning sampleapp
+docker run -t -d -p 5050:5050 --name samplerunning sampleapp
 docker ps -a
